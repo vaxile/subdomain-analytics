@@ -1,0 +1,15 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+dependencies {
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '4.0.2'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.200'
+}
+
+shadowJar {
+    relocate 'com.zaxxer.hikari', 'net.vaxile.analytics.lib.hikari'
+    relocate 'com.h2database', 'net.vaxile.analytics.lib.h2'
+}
